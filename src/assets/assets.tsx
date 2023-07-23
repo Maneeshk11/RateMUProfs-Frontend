@@ -1,0 +1,6 @@
+export const HomeIcon = "/icons/homeIcon.svg"
+export const SchoolIcon = "./icons/schoolIcon.svg"
+export const ProfIcon = "./icons/personIcon.svg"
+export const AboutIcon = "./icons/aboutIcon.svg"
+export const ContactIcon = "./icons/contactIcon.svg"
+export const SettingsIcon = "./icons/settingsIcon.svg"
