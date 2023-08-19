@@ -1,7 +1,7 @@
 import {
     useNavigate
 } from "react-router";
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import { updateDirection, clearDirection } from "../molecules/directionBar/directionbarSlice";
 
 

@@ -4,7 +4,7 @@ import SomImg from "../../assets/icons/somImg.svg"
 import SolIcon from "../../assets/icons/gavel.svg"
 import ImsoeIcon from "../../assets/icons/imsoe.svg"
 
-import { useSelector, useDispatch } from "react-redux" 
+// import { useSelector, useDispatch } from "react-redux" 
 
 const SchoolsPage = () => {
     const escoePara = "Mahindra University École Centrale School of Engineering (MU) is a prestigious engineering college in India, founded through a collaboration between the Mahindra Group and École Centrale Paris. With the Mahindra Group's expertise in engineering and technology, and École Centrale Paris' rich legacy and influential alumni, MU aims to establish itself as one of the top engineering institutions in India and globally."

@@ -1,9 +1,9 @@
-import { InputHTMLAttributes, useState } from "react";
+import { useState } from "react";
 import AddItemIcon from "../../assets/icons/addIcon.svg"
 import MinusItemIcon from "../../assets/icons/minusIcon.svg"
 import { useNavigate, useLocation } from "react-router";
 import { updateDirection, clearDirection, deleteLast } from "../molecules/directionBar/directionbarSlice";
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 
 
 interface NavItemProps {
@@ -64,7 +64,7 @@ const NavItem: React.FC<NavItemProps> = ({
                 navigateDirection: subItemsAbbrev ? subItemsAbbrev[index] : "",
             }
         ))
-        const presentURI = location.pathname;
+        // const presentURI = location.pathname;
         navigate("/schools" + `/${subItemsLinkTo ? subItemsLinkTo[index] : ""}`)
     }
 

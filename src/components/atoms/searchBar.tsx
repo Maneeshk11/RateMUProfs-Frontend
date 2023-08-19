@@ -1,5 +1,5 @@
 import SearchIcon from "../../assets/icons/searchIcon.svg"
-import { FC, InputHTMLAttributes, useState, Dispatch, SetStateAction } from "react";
+// import { FC, InputHTMLAttributes, useState, Dispatch, SetStateAction } from "react";
 import React from "react";
 
 interface SearchBarProps {

@@ -13,7 +13,7 @@ import EcsoeImg from "../../../assets/icons/ecsoeImg.svg"
 import SomImg from "../../../assets/icons/somImg.svg"
 import ImsoeImg from "../../../assets/icons/imsoe.svg"
 
-import { useSelector, useDispatch } from "react-redux" 
+import { useSelector } from "react-redux" 
 
 const NavBar = () => {
 

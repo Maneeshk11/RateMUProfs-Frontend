@@ -1,6 +1,6 @@
 // import { useState } from 'react'
 import './App.css'
-import { Routes, Route } from "react-router"
+// import { Routes, Route } from "react-router"
 import NavBarMinimized from "./components/molecules/navBar/navBarMinimized"
 import BackgroundPage from './components/organisms/background'
 

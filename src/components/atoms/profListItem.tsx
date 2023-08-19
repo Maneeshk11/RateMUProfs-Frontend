@@ -1,5 +1,5 @@
 
-import { InputHTMLAttributes, useState } from "react";
+// import { InputHTMLAttributes, useState } from "react";
 
 interface ProfListItemProps {
     name: string;
@@ -13,7 +13,7 @@ const ProfListItem: React.FC<ProfListItemProps>  = ({
     name,
     rating,
     totRatingCount,
-    profId,
+    // profId,
     department
 }) => {
     return (

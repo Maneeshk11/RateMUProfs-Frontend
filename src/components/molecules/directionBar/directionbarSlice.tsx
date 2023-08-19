@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import HomeIcon from "../../../assets/icons/homeIcon.svg"
-import type { PayloadAction } from '@reduxjs/toolkit';
+// import type { PayloadAction } from '@reduxjs/toolkit';
 
 interface DirectionObject {
   name: string,

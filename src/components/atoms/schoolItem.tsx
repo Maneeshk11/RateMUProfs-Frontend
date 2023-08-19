@@ -2,9 +2,9 @@ import AddItemIcon from "../../assets/icons/addIcon.svg"
 import MinusItemIcon from "../../assets/icons/minusIcon.svg"
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { updateDirection } from "../molecules/directionBar/directionbarSlice";
-import CHECKCIRCLE from "../../assets/icons/check_circle_FILL0_wght400_GRAD0_opsz48.svg"
+// import CHECKCIRCLE from "../../assets/icons/check_circle_FILL0_wght400_GRAD0_opsz48.svg"
 
 interface SchoolItemProps {
     schoolName: string;
@@ -21,7 +21,7 @@ const SchoolItem: React.FC<SchoolItemProps> = ({
     schoolDescription,
     schoolAbbrev,
     schoolLink,
-    schoolProfsPageLink,
+    // schoolProfsPageLink,
     schoolImg
 }) => {
     const [clickSchool, setClickSchool] = useState(false);

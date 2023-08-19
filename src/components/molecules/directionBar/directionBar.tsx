@@ -1,11 +1,11 @@
-import { useSelector, useDispatch } from "react-redux"
-import { useNavigate } from "react-router";
+import { useSelector } from "react-redux"
+// import { useNavigate } from "react-router";
 import ArrowRight from "../../../assets/icons/arrowRight.svg"
-import { updateDirection, clearDirection } from "./directionbarSlice";
+// import { updateDirection, clearDirection } from "./directionbarSlice";
 
 const DirectionBar = () => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    // const dispatch = useDispatch();
+    // const navigate = useNavigate();
     const directionStateSlice = useSelector((state: any) => state.directionbar)
     const directionStates = directionStateSlice.directionArray;
     return (
