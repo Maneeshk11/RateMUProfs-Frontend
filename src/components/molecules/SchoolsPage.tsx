@@ -1,4 +1,10 @@
 import SchoolItem from "../atoms/schoolItem"
+import EcsoeImg from "../../assets/icons/ecsoeImg.svg"
+import SomImg from "../../assets/icons/somImg.svg"
+import SolIcon from "../../assets/icons/gavel.svg"
+import ImsoeIcon from "../../assets/icons/imsoe.svg"
+
+import { useSelector, useDispatch } from "react-redux" 
 
 const SchoolsPage = () => {
     const escoePara = "Mahindra University École Centrale School of Engineering (MU) is a prestigious engineering college in India, founded through a collaboration between the Mahindra Group and École Centrale Paris. With the Mahindra Group's expertise in engineering and technology, and École Centrale Paris' rich legacy and influential alumni, MU aims to establish itself as one of the top engineering institutions in India and globally."
@@ -13,13 +19,13 @@ const SchoolsPage = () => {
 
             <div className="w-[70%]">
                 <SchoolItem schoolName="École Centrale School of Engineering"
-                    schoolDescription={escoePara}></SchoolItem>
+                    schoolDescription={escoePara} schoolAbbrev="ECSOE" schoolImg={EcsoeImg}></SchoolItem>
                 <SchoolItem schoolName="School of Law"
-                schoolDescription={solPara}></SchoolItem>
+                schoolDescription={solPara} schoolAbbrev="SOL" schoolImg={SolIcon}></SchoolItem>
                 <SchoolItem schoolName="School of Management"
-                    schoolDescription={somPara}></SchoolItem>
+                    schoolDescription={somPara} schoolAbbrev="SOM" schoolImg={SomImg}></SchoolItem>
                 <SchoolItem schoolName="Indira Mahindra School of Education"
-                    schoolDescription={imsoePara}></SchoolItem>
+                    schoolDescription={imsoePara} schoolAbbrev="IMSOE" schoolImg={ImsoeIcon}></SchoolItem>
             </div>
         </div>
     )

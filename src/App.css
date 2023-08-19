@@ -40,3 +40,27 @@
 .read-the-docs {
   color: #888;
 }
+
+@keyframes drawCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.circle-outline {
+  stroke-dasharray: 372; /* Perimeter of the circle path (2 * π * radius) */
+  stroke-dashoffset: 372; /* Start with dash offset equal to the perimeter */
+  animation: drawCircle 0.75s linear forwards;
+}
+
+@keyframes drawTick {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.circle-path {
+  stroke-dasharray: 190;
+  stroke-dashoffset: 190;
+  animation: drawCircle 0.75s linear forwards;
+}

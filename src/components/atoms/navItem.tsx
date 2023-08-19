@@ -1,8 +1,8 @@
 import { InputHTMLAttributes, useState } from "react";
 import AddItemIcon from "../../assets/icons/addIcon.svg"
 import MinusItemIcon from "../../assets/icons/minusIcon.svg"
-import { useNavigate } from "react-router";
-import { updateDirection, clearDirection } from "../molecules/directionBar/directionbarSlice";
+import { useNavigate, useLocation } from "react-router";
+import { updateDirection, clearDirection, deleteLast } from "../molecules/directionBar/directionbarSlice";
 import { useSelector, useDispatch } from "react-redux"
 
 
@@ -11,7 +11,9 @@ interface NavItemProps {
     itemName: string,
     imgSrc?: string,
     subItems?: string[],
-    subItemsImg?: string[]
+    subItemsImg?: string[],
+    subItemsAbbrev?: string[],
+    subItemsLinkTo?: string[],
 }
 
 
@@ -20,10 +22,13 @@ const NavItem: React.FC<NavItemProps> = ({
     itemName,
     imgSrc,
     subItems,
-    subItemsImg
+    subItemsImg,
+    subItemsAbbrev,
+    subItemsLinkTo,
 }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const [dropdownItems, setDropdownItems] = useState(false)
 
@@ -46,6 +51,21 @@ const NavItem: React.FC<NavItemProps> = ({
 
             navigate(`/${linkTo}`);
         }
+    }
+
+    const onClickSubItem = (index:number) => {
+        if (!location.pathname.endsWith('schools')) {
+            dispatch(deleteLast());
+        }
+        dispatch(updateDirection(
+            {
+                name: subItemsAbbrev ? subItemsAbbrev[index] : "",
+                imgSrc: subItemsImg ? subItemsImg[index] : "",
+                navigateDirection: subItemsAbbrev ? subItemsAbbrev[index] : "",
+            }
+        ))
+        const presentURI = location.pathname;
+        navigate("/schools" + `/${subItemsLinkTo ? subItemsLinkTo[index] : ""}`)
     }
 
     return (
@@ -72,10 +92,10 @@ const NavItem: React.FC<NavItemProps> = ({
 
             {
                 dropdownItems && subItems && subItemsImg && (
-                    <div className={`w-[90%] rounded-lg flex flex-col items-center m-auto`}>
+                    <div className={`w-[90%] rounded-lg flex flex-col items-center m-auto`} >
                         {
                             subItems.map((item, index) => (
-                                <div className="w-full hover:bg-[#f0eeed]  flex flex-row h-[3rem] items-center justify-start pl-12 cursor-pointer rounded">
+                                <div className="w-full hover:bg-[#f0eeed]  flex flex-row h-[3rem] items-center justify-start pl-12 cursor-pointer rounded" onClick={()=>onClickSubItem(index)}>
                                     <img src={subItemsImg[index]} alt="icon" className="w-6 mx-4" />
                                     <text className="text-base">{item}</text>
                                 </div>

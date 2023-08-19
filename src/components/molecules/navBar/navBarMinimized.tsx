@@ -38,7 +38,7 @@ const NavBarMinimized = () => {
                     </div>
                 </div>
                 <div className="w-full flex flex-col items-center">
-                    <img src={GuestUser} alt="" className="w-[3rem] my-8 cursor-pointer" />
+                    <NavMinimizedItem imgSrc={GuestUser} linkTo="login" itemName="Login"></NavMinimizedItem>
                     <NavMinimizedItem imgSrc={ContactIcon} linkTo="contact" itemName="Contact Us"></NavMinimizedItem>
                     <NavMinimizedItem imgSrc={SettingsIcon} linkTo="settings" itemName="Settings"></NavMinimizedItem>
                 </div>

@@ -29,9 +29,12 @@ export const directionbarSlice = createSlice({
         },
         clearDirection(state) {
           state.directionArray = initialState.directionArray;
-        }
+        },
+        deleteLast(state) {
+          state.directionArray.pop();
+        },
     },
 })
 
-export const { updateDirection, clearDirection } = directionbarSlice.actions;
+export const { updateDirection, clearDirection, deleteLast } = directionbarSlice.actions;
 export default directionbarSlice.reducer;
