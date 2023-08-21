@@ -1,8 +1,29 @@
+import { GoogleOAuthProvider, GoogleLogin, useGoogleLogin } from "@react-oauth/google"
+import jwt_decode from "jwt-decode";
+import axios from "axios";
 import LogoMU from "../../assets/icons/logoMain.svg"
 import FacebookLogo from "../../assets/icons/facebook.svg"
 import GoogleLogo from "../../assets/icons/google.svg"
+import { useNavigate } from "react-router";
 
 const Login = () => {
+    const navigate = useNavigate();
+
+    const loginGoogle = useGoogleLogin({
+        onSuccess: async(tokenResponse) => {
+            console.log("token resp: ", tokenResponse)
+            const userInfo = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo', {
+                headers: {
+                    Authorization: `Bearer${tokenResponse.access_token}`
+                }
+            }). then (res => res.data)
+            console.log("user details: ", userInfo)
+            localStorage.setItem('userInfo', JSON.stringify(userInfo))
+            navigate("/account")
+        },
+        flow: "implicit"
+    });
+
     return (
         <div className="flex flex-col items-center gap-y-8 mt-12">
             <div className="flex flex-col gap-y-2">
@@ -21,7 +42,8 @@ const Login = () => {
                     <span className="px-3">OR</span>
                     <div className="bg-[#1919193f] h-[1px] flex-grow">&nbsp;</div>
                 </div>
-                <button type="submit" className="flex flex-row items-center justify-center gap-x-2 rounded-lg w-full px-4 py-3 border-[1px] border-[#1919193f]">
+                <button type="submit" className="flex flex-row items-center justify-center gap-x-2 rounded-lg w-full px-4 py-3 border-[1px] border-[#1919193f]"
+                    onClick={()=>loginGoogle()}>
                     <img src={GoogleLogo} alt="google" />
                     Continue with Google
                 </button>

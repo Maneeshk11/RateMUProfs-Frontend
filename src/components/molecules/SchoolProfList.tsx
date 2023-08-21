@@ -6,6 +6,9 @@ import FilterIcon from "../../assets/icons/filterIcon.svg"
 import { GET_ALL_PROFS, GET_PROFS_BY_SCHOOL } from "../../Constants/api";
 import { Professor } from "../../Constants/types";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+
 
 // interface SchoolProfListProps {
 //     schoolName: string;
@@ -17,6 +20,9 @@ const SchoolProfList = () => {
     const [tempProfsList, setTempProfsList] = useState<Professor[]>();
     const [indexHead, setIndexHead] = useState<number>(0)
     const [searchVal, setSearchVal] = useState<string>("")
+
+    const favouriteProfSlice = useSelector((state:any) => state.favourite)
+    const favouriteProfs = favouriteProfSlice.favoriteProfs;
 
     useEffect(() => {
         const schoolName = params.schoolName;
@@ -63,29 +69,31 @@ const SchoolProfList = () => {
                     Filter <img src={FilterIcon} alt="filter" />
                 </button>
             </div>
-            <div className="flex flex-col items-center w-full">
-                <div className="w-4/5 flex text-left flex-row items-center border-[1px] bg-[#f8f7f6] border-[#00000058] text-base font-medium py-5">
-                    <span className=" w-1/4 px-8">Name</span>
+            <div className="flex flex-col items-center w-4/5 h-[70vh] border-[#00000058] border-[1px]">
+                <div className="w-full flex text-left flex-row items-center border-[1px] bg-[#f8f7f6] border-[#00000058] text-base font-medium py-5">
+                    <span className=" w-[20%] px-8">Name</span>
                     <span className=" w-[45%] px-8 ">Department</span>
                     <span className=" w-[15%] px-8">Rating</span>
                     <span className="w-[15%] px-8 ">Total Ratings</span>
                 </div>
-                {
-                    tempProfsList && tempProfsList.length > 0 ? (
-                        tempProfsList.map((prof, index) => (
-                            index >= indexHead * 9 && index < indexHead * 9 + 9 &&
-                            <ProfListItem name={prof.name} rating={prof.rating} totRatingCount={prof.totRatings} profId="1234rrr"
-                                department={prof.dept}></ProfListItem>
+                <div className="w-full  overflow-scroll">
+                    {
+                        tempProfsList && tempProfsList.length > 0 ? (
+                            tempProfsList.map((prof, index) => (
+                                // index >= indexHead * 9 && index < indexHead * 9 + 9 &&
+                                <ProfListItem name={prof.name} rating={prof.rating} totRatingCount={prof.totRatings} profId="1234rrr"
+                                    department={prof.dept} isFavorite={favouriteProfs.includes(prof.name) ? true : false}></ProfListItem>
+                            )
+                            )
+                        ) : (
+                            <div className="w-full flex text-center flex-row items-center border-t-[1px] border-[#00000058] text-base font-medium py-5">
+                                <span className=" w-full px-8">No match found</span>
+                            </div>
                         )
-                        )
-                    ) : (
-                        <div className="w-4/5 flex text-center flex-row items-center border-[1px] border-[#00000058] text-base font-medium py-5">
-                            <span className=" w-full px-8">No match found</span>
-                        </div>
-                    )
-                }
+                    }
+                </div>
             </div>
-            <div className="flex flex-row gap-x-4 mt-2 w-72 overflow-x-scroll">
+            {/* <div className="flex flex-row gap-x-4 mt-2 w-72 overflow-x-scroll">
                 {tempProfsList &&
                     Array.from({ length: Math.ceil(tempProfsList.length / 9) }).map((_, index) => (
                         <div className="flex items-center justify-center h-12 w-12 hover:bg-[#dfdedd] border-[2px] border-black flex-shrink-0 cursor-pointer"
@@ -94,7 +102,7 @@ const SchoolProfList = () => {
                             )}>{index + 1}</div>
                     ))
                 }
-            </div>
+            </div> */}
         </div>
     );
 }

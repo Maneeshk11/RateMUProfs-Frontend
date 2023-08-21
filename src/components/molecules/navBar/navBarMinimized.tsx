@@ -22,7 +22,6 @@ const NavBarMinimized = () => {
     const toggleMenu = () => {
         // console.log(navbarToggleState)
         dispatch(toggleNavBar())
-            
     }
 
     return (
@@ -38,7 +37,9 @@ const NavBarMinimized = () => {
                     </div>
                 </div>
                 <div className="w-full flex flex-col items-center">
-                    <NavMinimizedItem imgSrc={GuestUser} linkTo="login" itemName="Login"></NavMinimizedItem>
+                    <NavMinimizedItem imgSrc={GuestUser} linkTo={
+                        localStorage.getItem('userInfo') ? "account" : "login"
+                    } itemName={localStorage.getItem('userInfo') ? "Account" : "Login"}></NavMinimizedItem>
                     <NavMinimizedItem imgSrc={ContactIcon} linkTo="contact" itemName="Contact Us"></NavMinimizedItem>
                     <NavMinimizedItem imgSrc={SettingsIcon} linkTo="settings" itemName="Settings"></NavMinimizedItem>
                 </div>
