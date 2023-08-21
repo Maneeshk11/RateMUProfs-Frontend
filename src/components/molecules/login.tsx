@@ -1,25 +1,23 @@
-import { GoogleOAuthProvider, GoogleLogin, useGoogleLogin } from "@react-oauth/google"
-import jwt_decode from "jwt-decode";
+import { useGoogleLogin } from "@react-oauth/google"
 import axios from "axios";
 import LogoMU from "../../assets/icons/logoMain.svg"
-import FacebookLogo from "../../assets/icons/facebook.svg"
+import MicrosoftLogo from "../../assets/icons/microsoft.svg"
 import GoogleLogo from "../../assets/icons/google.svg"
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
+import { VERIFY_USER } from "../../Constants/api";
 
 const Login = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const loginGoogle = useGoogleLogin({
         onSuccess: async(tokenResponse) => {
             console.log("token resp: ", tokenResponse)
-            const userInfo = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo', {
-                headers: {
-                    Authorization: `Bearer${tokenResponse.access_token}`
-                }
+            const userInfo = await axios.post(VERIFY_USER, {
+                accessToken: tokenResponse.access_token
             }). then (res => res.data)
             console.log("user details: ", userInfo)
             localStorage.setItem('userInfo', JSON.stringify(userInfo))
-            navigate("/account")
+            window.location.href = "/account";
         },
         flow: "implicit"
     });
@@ -48,8 +46,8 @@ const Login = () => {
                     Continue with Google
                 </button>
                 <button type="submit" className="flex flex-row items-center justify-center gap-x-2 rounded-lg w-full px-4 py-3 border-[1px] border-[#1919193f]">
-                    <img src={FacebookLogo} alt="meta" />
-                    Continue with Facebook
+                    <img src={MicrosoftLogo} alt="meta" />
+                    Continue with Microsoft
                 </button>
                 <div className="flex flex-row gap-x-2">
                     <h2>Don't have an account?</h2>

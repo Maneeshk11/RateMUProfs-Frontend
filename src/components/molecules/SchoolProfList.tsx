@@ -18,7 +18,7 @@ const SchoolProfList = () => {
     const params = useParams();
     const [allProfs, setAllProfs] = useState<Professor[]>()
     const [tempProfsList, setTempProfsList] = useState<Professor[]>();
-    const [indexHead, setIndexHead] = useState<number>(0)
+    // const [indexHead, setIndexHead] = useState<number>(0)
     const [searchVal, setSearchVal] = useState<string>("")
 
     const favouriteProfSlice = useSelector((state:any) => state.favourite)
@@ -79,7 +79,7 @@ const SchoolProfList = () => {
                 <div className="w-full  overflow-scroll">
                     {
                         tempProfsList && tempProfsList.length > 0 ? (
-                            tempProfsList.map((prof, index) => (
+                            tempProfsList.map((prof, _) => (
                                 // index >= indexHead * 9 && index < indexHead * 9 + 9 &&
                                 <ProfListItem name={prof.name} rating={prof.rating} totRatingCount={prof.totRatings} profId="1234rrr"
                                     department={prof.dept} isFavorite={favouriteProfs.includes(prof.name) ? true : false}></ProfListItem>

@@ -36,12 +36,12 @@ const ProfListItem: React.FC<ProfListItemProps> = ({
             <span className="px-8 w-[15%]">{totRatingCount}</span>
             <Heart fill={isFavorite ? "#ff0000" : "#c9c9c9"} onClick={(event) => {
                 event.stopPropagation();
-                // if (!favouriteProfs.includes(name)) {                    
-                //     dispatch(addFavProf(name))
-                // }
-                // else {
-                //     dispatch(removeFavProf(name))
-                // }
+                if (!favouriteProfs.includes(name)) {                    
+                    dispatch(addFavProf(name))
+                }
+                else {
+                    dispatch(removeFavProf(name))
+                }
             }} />
         </div>
     );

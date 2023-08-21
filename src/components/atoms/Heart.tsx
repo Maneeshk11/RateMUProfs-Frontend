@@ -1,5 +1,3 @@
-import { CSSProperties } from "react";
-
 interface HeartProps {
     onClick: (e:any) => void,
     fill?: string

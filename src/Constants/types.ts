@@ -13,3 +13,12 @@ export interface Professor {
     responsiveness: number;
     userRatings: Array<string>;
 }
+
+export interface User {
+    _id: string;
+    email: string;
+    name: string;
+    picture: string;
+    ratings: Array<string>;
+    sub: string;
+}

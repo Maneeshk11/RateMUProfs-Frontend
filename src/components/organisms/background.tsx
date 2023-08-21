@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router"
 import SchoolsPage from "../molecules/SchoolsPage";
 import SchoolProfList from "../molecules/SchoolProfList";
 import Login from "../molecules/login";
-import Account from "../molecules/Account";
+import Account from "../molecules/Account/Account";
 
 const BackgroundPage = () => {
     return (
