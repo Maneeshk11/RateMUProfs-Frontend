@@ -1,0 +1,5 @@
+services:
+  - name: Rate MU Professors Frontend
+    type: web
+    buildCommand: npm install && npm run build
+    startCommand: npm run preview
