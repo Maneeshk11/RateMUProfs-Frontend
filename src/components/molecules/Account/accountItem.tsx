@@ -7,7 +7,7 @@ interface AccountItemProps {
 }
 
 const AccountItem:FC <AccountItemProps> = ({
-    AccountHeading, AccountSubPage,
+    AccountHeading,
 }) => {
     return (
         <div className="flex flex-row items-center w-96 justify-between p-4 rounded hover:bg-[#f0eeed] cursor-pointer">

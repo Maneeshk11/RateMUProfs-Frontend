@@ -7,7 +7,7 @@ interface ProfessorRatingChartProps {
     coursequality: number;
 }
 const ProfessorRatingChart: FC<ProfessorRatingChartProps> = ({
-    lod, helpfulness, responsiveness, coursequality
+    lod,
 }) => {
 
     const colorScheme = ["bg-rating-bad", "bg-rating-belowavg", "bg-rating-avg", "bg-rating-good", "bg-rating-best", "bg-rating-best"];
