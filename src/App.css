@@ -64,3 +64,29 @@
   stroke-dashoffset: 190;
   animation: drawCircle 0.75s linear forwards;
 }
+
+
+.animated-copyIcon {
+  animation: fadeOut 1s linear forwards;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  display: block;
+  width: 4px;
+}
+
+/* Track */
+.custom-scroll::-webkit-scrollbar-track {
+  background: none;
+}
+
+/* Handle */
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 12px;
+}
+
+/* Handle on hover */
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

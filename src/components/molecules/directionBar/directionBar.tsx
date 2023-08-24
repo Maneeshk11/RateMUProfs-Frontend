@@ -9,11 +9,11 @@ const DirectionBar = () => {
     const directionStateSlice = useSelector((state: any) => state.directionbar)
     const directionStates = directionStateSlice.directionArray;
     return (
-        <div className="h-[5rem] flex flex-row items-center px-4">
+        <div className="h-20 flex flex-row items-center px-4 fixed">
             {
                 directionStates && (
                     directionStates.map((item: any, index:number) => (
-                        <div className="flex flex-row items-center">
+                        <div className="flex flex-row items-center" key={index}>
                             <div className="flex flex-row items-center cursor-pointer" onClick={
                                 () => (
                                     // navigate(item.navigateDirection)

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 // import { useNavigate } from "react-router";
-import { User } from "../../../Constants/types";
+import { User } from "@/Constants/types";
+import AccountItem from "./accountItem";
 
 const Account = () => {
     const [userInfo, setUserInfo] = useState<User>()
@@ -33,7 +34,15 @@ const Account = () => {
                     <span className="font-extrabold text-5xl text-[#e21b38] ">{userInfo.name}</span>
                 </div>
             </div>
-            
+            <div className="w-full flex flex-row mt-8">
+                <div className="flex flex-col w-1/4"> 
+                    <AccountItem AccountHeading="Profile" AccountSubPage="My Profile"></AccountItem>
+                    <AccountItem AccountHeading="Ratings" AccountSubPage="My Profile"></AccountItem>
+                    <AccountItem AccountHeading="Saved Professors" AccountSubPage="My Profile"></AccountItem>
+                    <AccountItem AccountHeading="Account Settings" AccountSubPage="My Profile"></AccountItem>
+                </div>
+            </div>
+
         </div>
     );
 }

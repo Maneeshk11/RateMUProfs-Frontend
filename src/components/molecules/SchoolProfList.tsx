@@ -76,12 +76,12 @@ const SchoolProfList = () => {
                     <span className=" w-[15%] px-8">Rating</span>
                     <span className="w-[15%] px-8 ">Total Ratings</span>
                 </div>
-                <div className="w-full  overflow-scroll">
+                <div className="w-full custom-scroll overflow-y-scroll">
                     {
                         tempProfsList && tempProfsList.length > 0 ? (
                             tempProfsList.map((prof, _) => (
                                 // index >= indexHead * 9 && index < indexHead * 9 + 9 &&
-                                <ProfListItem name={prof.name} rating={prof.rating} totRatingCount={prof.totRatings} profId="1234rrr"
+                                <ProfListItem profId={prof._id} name={prof.name} rating={prof.rating} totRatingCount={prof.totRatings}
                                     department={prof.dept} isFavorite={favouriteProfs.includes(prof.name) ? true : false}></ProfListItem>
                             )
                             )

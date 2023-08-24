@@ -5,18 +5,26 @@ import SchoolsPage from "../molecules/SchoolsPage";
 import SchoolProfList from "../molecules/SchoolProfList";
 import Login from "../molecules/login";
 import Account from "../molecules/Account/Account";
+import ProfessorPage from "../molecules/professorPage/ProfessorPage";
 
 const BackgroundPage = () => {
     return (
-        <div className="flex-grow">
+        <div className="flex-grow overflow-y-scroll h-screen relative">
             <DirectionBar></DirectionBar>
-            <Routes>
-                <Route path={"/schools"} Component={SchoolsPage}></Route>
-                <Route path={"/schools/professors/:schoolName"} element={<SchoolProfList/>}></Route>
-                <Route path={"/professors"} element={<SchoolProfList/>}></Route>
-                <Route path={"/login"} Component={Login}></Route>
-                <Route path={"/account"} Component={Account}></Route>
-            </Routes>
+            <div className="mt-16">
+                <Routes>
+                    <Route path={"/schools"} Component={SchoolsPage}></Route>
+                    <Route path={"/schools/:schoolName"} element={<SchoolProfList />}></Route>
+                    <Route path={"/professors"} element={<SchoolProfList />}></Route>
+                    <Route path="/professors/:professorId" element={<ProfessorPage />} />
+                    <Route
+                        path="/schools/:schoolName/:professorId"
+                        element={<ProfessorPage />}
+                    />
+                    <Route path={"/login"} Component={Login}></Route>
+                    <Route path={"/account"} Component={Account}></Route>
+                </Routes>
+            </div>
         </div>
     );
 }

@@ -38,11 +38,11 @@ const SchoolItem: React.FC<SchoolItemProps> = ({
             }
         ))
         const presentURI = location.pathname;
-        navigate(presentURI + `/professors/${schoolAbbrev}`)
+        navigate(presentURI + `/${schoolAbbrev}`)
     }
 
     return (
-        <div className={`w-full px-4 text-red-600 border-b-[1px] border-red-500 flex flex-col items-center cursor-pointer
+        <div className={`transition-all duration-700 ease-in w-full px-4 text-red-600 border-b-[1px] border-red-500 flex flex-col items-center cursor-pointer
         hover:bg-[#f0f0f084] ${clickSchool ? "bg-[#f0f0f084]" : ""}`} onClick={() => {
                 setClickSchool(!clickSchool);
             }}>
