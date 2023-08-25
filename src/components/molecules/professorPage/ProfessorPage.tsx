@@ -25,7 +25,7 @@ const ProfessorPage = () => {
         <div className="flex flex-col px-12 py-8 w-full gap-y-16">
             <div className="flex flex-row justify-between w-full items-center">
                 <ProfessorNameItem dept={profDetails.dept} name={profDetails.name}
-                    rating={profDetails.rating} school={profDetails.school} totRatings={profDetails.totRatings} />
+                    rating={profDetails.rating} school={profDetails.school} totRatings={profDetails.totRatings} googleScholar_link={profDetails.googleScholar_link} linkedin_link={profDetails.linkedin_link} muProfile_link={profDetails.muProfile_link}/>
                 <button className="min-h-14 border-[1px] border-[#00000041] text-white bg-[#000000c2] font-medium px-6 py-4 rounded-lg text-base">Rate Professor</button>
             </div>
             <div className="w-full flex justify-start">

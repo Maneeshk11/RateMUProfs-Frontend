@@ -12,6 +12,9 @@ export interface Professor {
     helpfulness: number;
     responsiveness: number;
     userRatings: Array<string>;
+    linkedin_link: string,
+    googleScholar_link: string,
+    muProfile_link: string
 }
 
 export interface User {

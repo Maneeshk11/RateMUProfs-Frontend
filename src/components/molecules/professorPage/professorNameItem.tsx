@@ -11,10 +11,13 @@ interface ProfessorNameItemProps {
     name: string;
     school: string;
     dept: string;
+    linkedin_link: string;
+    googleScholar_link: string;
+    muProfile_link: string;
 }
 
 const ProfessorNameItem: FC<ProfessorNameItemProps> = ({
-    rating, totRatings, name, school, dept
+    rating, totRatings, name, school, dept, linkedin_link, googleScholar_link, muProfile_link
 }) => {
     return (
         <div className="flex flex-row gap-x-6">
@@ -34,13 +37,13 @@ const ProfessorNameItem: FC<ProfessorNameItemProps> = ({
                 <Link to="" target="_blank" className="cursor-pointer">
                     <img src={MailIcon} alt="email" className="text-end" />
                 </Link>
-                <Link to="" target="_blank" className="cursor-pointer">
+                <Link to={muProfile_link} target="_blank" className="cursor-pointer">
                     <img src={MuLogo} alt="muprofile" />
                 </Link>
-                <Link to="" target="_blank" className="cursor-pointer">
+                <Link to={googleScholar_link} target="_blank" className="cursor-pointer">
                     <img src={GoogleScholarIcon} alt="googlescholar" />
                 </Link>
-                <Link to="" target="_blank" className="cursor-pointer">
+                <Link to={linkedin_link} target="_blank" className="cursor-pointer">
                     <img src={LinkedInIcon} alt="linkedin" />
                 </Link>
             </div>
