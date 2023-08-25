@@ -21,8 +21,8 @@ const BackgroundPage = () => {
                         path="/schools/:schoolName/:professorId"
                         element={<ProfessorPage />}
                     />
-                    <Route path={"/login"} Component={Login}></Route>
                     <Route path={"/account"} Component={Account}></Route>
+                    <Route path={"/login"} Component={Login}></Route>
                 </Routes>
             </div>
         </div>

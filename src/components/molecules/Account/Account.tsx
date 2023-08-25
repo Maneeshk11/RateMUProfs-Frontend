@@ -9,10 +9,11 @@ const Account = () => {
     useEffect(() => {
         const userInfoString = localStorage.getItem('userInfo');
         if (userInfoString) {
-            setUserInfo(JSON.parse(userInfoString).user_data);
+            setUserInfo(JSON.parse(userInfoString).userData);
         } else {
             console.log('No userInfo found in localStorage.');
         }
+        console.log("userInfo: ", userInfo);
     }, [])
 
     const handleLogout = () => {
