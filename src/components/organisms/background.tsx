@@ -6,6 +6,8 @@ import SchoolProfList from "../molecules/SchoolProfList";
 import Login from "../molecules/login";
 import Account from "../molecules/Account/Account";
 import ProfessorPage from "../molecules/professorPage/ProfessorPage";
+import RatingsPage from "../molecules/RatingsPage/ratingsPage";
+import AboutUs from "../molecules/about";
 
 const BackgroundPage = () => {
     return (
@@ -21,8 +23,10 @@ const BackgroundPage = () => {
                         path="/schools/:schoolName/:professorId"
                         element={<ProfessorPage />}
                     />
+                    <Route path="/rating/:professorId" Component={RatingsPage}></Route>
                     <Route path={"/account"} Component={Account}></Route>
                     <Route path={"/login"} Component={Login}></Route>
+                    <Route path={"/about"} Component={AboutUs}></Route>
                 </Routes>
             </div>
         </div>

@@ -20,7 +20,7 @@ const ProfRatingBar: FC<ProfRatingBarProps> = ({
 
 
     return (
-        <div className={`h-12 border-2 border-[#00000095] rounded flex-grow w-full`}>
+        <div className={`h-12 border-2 border-[#00000095] rounded flex-grow`}>
             <div ref={containerRef} className={`h-full w-1/2 ${colorScheme[Math.floor(value) - 1 > 0 ? Math.floor(value) - 1 : 0]}`}></div>
         </div>
     )

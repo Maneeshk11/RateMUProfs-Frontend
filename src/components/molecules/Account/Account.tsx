@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react";
-// import { useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { User } from "@/Constants/types";
 import AccountItem from "./accountItem";
 
 const Account = () => {
+    const navigate = useNavigate();
     const [userInfo, setUserInfo] = useState<User>()
 
     useEffect(() => {
         const userInfoString = localStorage.getItem('userInfo');
+
+        if (!userInfoString) {
+            navigate("/login");
+        }
+
         if (userInfoString) {
             setUserInfo(JSON.parse(userInfoString).userData);
         } else {
@@ -18,6 +24,7 @@ const Account = () => {
 
     const handleLogout = () => {
         localStorage.removeItem('userInfo');
+        localStorage.removeItem('authToken');
         window.location.href = "/login";
     };
 
@@ -36,7 +43,7 @@ const Account = () => {
                 </div>
             </div>
             <div className="w-full flex flex-row mt-8">
-                <div className="flex flex-col w-1/4"> 
+                <div className="flex flex-col w-1/4">
                     <AccountItem AccountHeading="Profile" AccountSubPage="My Profile"></AccountItem>
                     <AccountItem AccountHeading="Ratings" AccountSubPage="My Profile"></AccountItem>
                     <AccountItem AccountHeading="Saved Professors" AccountSubPage="My Profile"></AccountItem>

@@ -9,7 +9,7 @@ const DirectionBar = () => {
     const directionStateSlice = useSelector((state: any) => state.directionbar)
     const directionStates = directionStateSlice.directionArray;
     return (
-        <div className="h-20 flex flex-row items-center px-4 fixed">
+        <div className="h-20 flex flex-row items-center px-4 fixed bg-white w-full flex-wrap">
             {
                 directionStates && (
                     directionStates.map((item: any, index:number) => (
