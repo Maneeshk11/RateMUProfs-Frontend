@@ -8,6 +8,7 @@ import Account from "../molecules/Account/Account";
 import ProfessorPage from "../molecules/professorPage/ProfessorPage";
 import RatingsPage from "../molecules/RatingsPage/ratingsPage";
 import AboutUs from "../molecules/about";
+import ContactUs from "../molecules/ContactUs";
 
 const BackgroundPage = () => {
     return (
@@ -27,6 +28,7 @@ const BackgroundPage = () => {
                     <Route path={"/account"} Component={Account}></Route>
                     <Route path={"/login"} Component={Login}></Route>
                     <Route path={"/about"} Component={AboutUs}></Route>
+                    <Route path={"/contact"} Component={ContactUs}></Route>
                 </Routes>
             </div>
         </div>
