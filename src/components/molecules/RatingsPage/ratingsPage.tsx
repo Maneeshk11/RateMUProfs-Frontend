@@ -1,9 +1,8 @@
-import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, FC, SetStateAction, useState } from "react";
 import { Rating } from 'react-simple-star-rating'
 import { sendRatingDetails } from "../../../utils/sendRating";
 import { useParams } from "react-router";
 import RatingModal from "../../atoms/RatingModal";
-import { getCourses } from "../../../utils/getCourses";
 import { SendRatingResponse } from "@/Constants/types";
 
 export const RatingItem: FC<{
@@ -31,7 +30,6 @@ const RatingsPage = () => {
     const [responsiveness, setResponsiveness] = useState(0)
     const [courseQuality, setCourseQuality] = useState(0)
     const [feedBack, setFeedback] = useState("")
-    const [courses, setCourses] = useState([])
     const [selectedCourse, setSelectedCourse] = useState("")
     const [isOpenModal, setIsOpenModal] = useState(false)
     const [submitResponse, setSubmitResponse] = useState<SendRatingResponse>()
@@ -39,15 +37,6 @@ const RatingsPage = () => {
     const handleFeedbackChange = (e: any) => {
         setFeedback(e.target.value);
     };
-
-    useEffect(() => {
-        const profId = params.professorId
-        if (!profId) return
-        getCourses(profId)
-            .then((resp) => {
-                setCourses(resp)
-            })
-    }, [])
 
     const submitRating = async () => {
         const profId = params.professorId
