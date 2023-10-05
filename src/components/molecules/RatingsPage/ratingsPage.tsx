@@ -77,16 +77,10 @@ const RatingsPage = () => {
                 <RatingModal isOpen={isOpenModal} response={submitResponse} isOpenFunc={() => { setIsOpenModal(false) }}></RatingModal>
             }
             <div className="w-4/5 p-4 flex flex-row items-center rounded-xl bg-[#f8f7f6] drop-shadow-md">
-                <span className="w-2/5">Course</span>
-                <select name="courseSelect" id="" className="p-2 rounded-lg w-2/5" onChange={(e: any) => {
+                <span className="w-2/5">Course<span className="text-red-700 ml-2">*</span></span>
+                <input type="text" className="rounded-sm border border-[#1818183a] p-3" onChange={(e: any) => {
                     setSelectedCourse(e.target.value);
-                }}>
-                    {
-                        courses.map((course: string, index) => (
-                            <option key={index} value={course}>{course}</option>
-                        ))
-                    }
-                </select>
+                }} placeholder="Ex: CS3001" />
             </div>
             <RatingItem required={true} ratingName="Teaching Quality" setRatingValue={setTeachingQuality} />
             <RatingItem required={true} ratingName="Helpfulness" setRatingValue={setHelpfulness} />
