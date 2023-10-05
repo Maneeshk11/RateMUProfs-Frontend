@@ -23,7 +23,9 @@ const ProfessorRatingItem = ({ rating }: { rating: Rating }) => {
                     </div>
                 </div>
                 <div className=" w-[300px] rounded-lg overflow-y-scroll p-4 bg-[#f0eeed61]">
-                    <span>{rating.feedback}</span>
+                    <div className=" w-full h-[185px] rounded-lg overflow-y-scroll" style={{ wordWrap: 'break-word' }} >
+                        <span className="mx-auto">{rating.feedback}</span>
+                    </div>
                 </div>
             </div>
         </div>
