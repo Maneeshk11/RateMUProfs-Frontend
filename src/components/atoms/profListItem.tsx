@@ -44,7 +44,7 @@ const ProfListItem: React.FC<ProfListItemProps> = ({
     }
 
     return (
-        <div className="relative w-full flex flex-row items-center text-left border-b-[1px] border-x-[1px] border-[#00000058] py-4 text-base cursor-pointer
+        <div className="relative w-full flex flex-row items-center text-left border-b-[1px] border-[#00000058] py-4 text-base cursor-pointer
         hover:bg-[#f8f7f6]" onClick={openProfessor}>
             <span className="px-8 w-[20%] text-base">{name}</span>
             <span className="px-8 w-[45%] text-sm">{department}</span>

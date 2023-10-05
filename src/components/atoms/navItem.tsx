@@ -73,7 +73,7 @@ const NavItem: React.FC<NavItemProps> = ({
             <div className="w-[90%] rounded-lg h-[3rem] flex flex-row items-center justify-between cursor-pointer m-auto hover:bg-[#f0eeed]" onClick={onClickNavItem}>
                 <div className="flex flex-row items-center justify-start">
                     <img src={imgSrc} alt="icon" className="w-6 mx-4" />
-                    <text className="text-base">{itemName}</text>
+                    <span className="text-base">{itemName}</span>
                 </div>
                 {
                     subItems && (
@@ -97,7 +97,7 @@ const NavItem: React.FC<NavItemProps> = ({
                             subItems.map((item, index) => (
                                 <div className="w-full hover:bg-[#f0eeed]  flex flex-row h-[3rem] items-center justify-start pl-12 cursor-pointer rounded" onClick={()=>onClickSubItem(index)}>
                                     <img src={subItemsImg[index]} alt="icon" className="w-6 mx-4" />
-                                    <text className="text-base">{item}</text>
+                                    <span className="text-base">{item}</span>
                                 </div>
                             ))
                         }

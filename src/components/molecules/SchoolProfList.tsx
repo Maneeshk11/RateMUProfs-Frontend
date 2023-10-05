@@ -69,19 +69,19 @@ const SchoolProfList = () => {
                     Filter <img src={FilterIcon} alt="filter" />
                 </button>
             </div>
-            <div className="flex flex-col items-center w-4/5 h-[70vh] border-[#00000058] border-[1px]">
-                <div className="w-full flex text-left flex-row items-center border-[1px] bg-[#f8f7f6] border-[#00000058] text-base font-medium py-5">
+            <div className="flex flex-col items-center w-4/5 h-[70vh] border-[#00000058] border-[1px] rounded-2xl">
+                <div className="w-full flex text-left flex-row items-center border-[1px] bg-[#f8f7f6] border-[#00000058] text-base font-medium py-5 rounded-t-2xl">
                     <span className=" w-[20%] px-8">Name</span>
                     <span className=" w-[45%] px-8 ">Department</span>
                     <span className=" w-[15%] px-8">Rating</span>
                     <span className="w-[15%] px-8 ">Total Ratings</span>
                 </div>
-                <div className="w-full custom-scroll overflow-y-scroll">
+                <div className="w-full custom-scroll overflow-y-scroll rounded-2xl">
                     {
                         tempProfsList && tempProfsList.length > 0 ? (
-                            tempProfsList.map((prof, _) => (
+                            tempProfsList.map((prof, index) => (
                                 // index >= indexHead * 9 && index < indexHead * 9 + 9 &&
-                                <ProfListItem profId={prof._id} name={prof.name} rating={prof.rating} totRatingCount={prof.totRatings}
+                                <ProfListItem key={index} profId={prof._id} name={prof.name} rating={prof.rating} totRatingCount={prof.totRatings}
                                     department={prof.dept} isFavorite={favouriteProfs.includes(prof.name) ? true : false}></ProfListItem>
                             )
                             )

@@ -1,5 +1,5 @@
 
-const DOMAIN = "http://13.200.99.235:8000"
+const DOMAIN = "https://ratemuprofs.live:8000"
 
 export const VERIFY_USER = `${DOMAIN}/verify_user`
 export const GET_ALL_PROFS =  `${DOMAIN}/professors`

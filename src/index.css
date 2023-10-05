@@ -10,28 +10,28 @@
 @font-face {
   font-family: Satoshi;
   font-weight: 300;
-  src: url('/public/fonts/Satoshi/Satoshi-Light.woff2');
+  src: url('/fonts/Satoshi/Satoshi-Light.woff2');
 }
 @font-face {
   font-family: Satoshi;
   font-weight: 400;
-  src: url('/public/fonts/Satoshi/Satoshi-Regular.woff2');
+  src: url('/fonts/Satoshi/Satoshi-Regular.woff2');
 }
 
 @font-face {
   font-family: Satoshi;
   font-weight: 500;
-  src: url('/public/fonts/Satoshi/Satoshi-Medium.woff2');
+  src: url('/fonts/Satoshi/Satoshi-Medium.woff2');
 }
 
 @font-face {
   font-family: Satoshi;
   font-weight: 700;
-  src: url('/public/fonts/Satoshi/Satoshi-Bold.woff2');
+  src: url('/fonts/Satoshi/Satoshi-Bold.woff2');
 }
 
 @font-face {
   font-family: Satoshi;
   font-weight: 800;
-  src: url('/public/fonts/Satoshi/Satoshi-Black.woff2');
+  src: url('/fonts/Satoshi/Satoshi-Black.woff2');
 }

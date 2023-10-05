@@ -1,5 +1,7 @@
 import axios from "axios";
 import { SEND_RATING } from "../Constants/api";
+import { SendRatingResponse } from "@/Constants/types";
+
 
 export const sendRatingDetails = async (
   professorId: string,
@@ -12,7 +14,7 @@ export const sendRatingDetails = async (
   helpfulness: number,
   feedback: string
 ) => {
-  let statusCode;
+  let respSendRating: SendRatingResponse;
   try {
     const response = await axios
       .post(
@@ -36,9 +38,17 @@ export const sendRatingDetails = async (
           },
         }
       )
-      statusCode = response.status;
+      respSendRating =  {
+        statuscode: response.status,
+        bannedTime: response.data.banTime,
+        message: response.data.response
+      }
   } catch (error:any) {
-    statusCode = error.response.status;
+    respSendRating =  {
+      statuscode: error.response.status,
+      bannedTime: error.response.data.banTime,
+      message: error.response.data.response
+    }
   }
-  return statusCode;
+  return respSendRating;
 };

@@ -50,3 +50,12 @@ export interface SendRating {
     feedback: string;
   };
 }
+
+
+
+export interface SendRatingResponse {
+  statuscode: number;
+  bannedTime?: number;
+  message?: string;
+}
+

@@ -25,7 +25,7 @@ const NavBar = () => {
             <div className="w-full flex flex-col items-center">
                 <img src={LogoMain} alt="logo" className="w-[20rem] my-8" />
                 <div className="w-[90%] px-4 flex flex-col items-start mx-auto mb-4">
-                    <text className="text-xl font-bold ">Dashboard</text>
+                    <span className="text-xl font-bold ">Dashboard</span>
                     <div className="w-full border-[1px] mt-[1px]  border-[rgba(31,31,31,0.15)]"></div>
                 </div>
                 <div className="w-full ">

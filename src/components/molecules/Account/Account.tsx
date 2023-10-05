@@ -49,6 +49,9 @@ const Account = () => {
                     <AccountItem AccountHeading="Saved Professors" AccountSubPage="My Profile"></AccountItem>
                     <AccountItem AccountHeading="Account Settings" AccountSubPage="My Profile"></AccountItem>
                 </div>
+                <div>
+                    
+                </div>
             </div>
 
         </div>

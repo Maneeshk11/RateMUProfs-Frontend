@@ -4,11 +4,13 @@ import { sendRatingDetails } from "../../../utils/sendRating";
 import { useParams } from "react-router";
 import RatingModal from "../../atoms/RatingModal";
 import { getCourses } from "../../../utils/getCourses";
+import { SendRatingResponse } from "@/Constants/types";
 
 export const RatingItem: FC<{
     ratingName: string;
     setRatingValue: Dispatch<SetStateAction<number>>;
-}> = ({ ratingName, setRatingValue }) => {
+    required?: boolean;
+}> = ({ ratingName, setRatingValue, required }) => {
 
     const findValue = (rate: number) => {
         setRatingValue(rate)
@@ -16,7 +18,7 @@ export const RatingItem: FC<{
 
     return (
         <div className="w-4/5 p-4 flex flex-row items-center rounded-xl bg-[#f8f7f6] drop-shadow-md">
-            <span className="w-2/5">{ratingName}</span>
+            <span className="w-2/5">{ratingName} {required && <span className="text-red-700 ml-2">*</span>}</span>
             <Rating SVGstyle={{ 'display': 'inline' }} onClick={findValue} />
         </div>
     )
@@ -32,7 +34,7 @@ const RatingsPage = () => {
     const [courses, setCourses] = useState([])
     const [selectedCourse, setSelectedCourse] = useState("")
     const [isOpenModal, setIsOpenModal] = useState(false)
-    const [statusCode, setStatusCode] = useState<number>(0)
+    const [submitResponse, setSubmitResponse] = useState<SendRatingResponse>()
 
     const handleFeedbackChange = (e: any) => {
         setFeedback(e.target.value);
@@ -42,9 +44,9 @@ const RatingsPage = () => {
         const profId = params.professorId
         if (!profId) return
         getCourses(profId)
-        .then((resp) => {
-            setCourses(resp)
-        })
+            .then((resp) => {
+                setCourses(resp)
+            })
     }, [])
 
     const submitRating = async () => {
@@ -64,17 +66,19 @@ const RatingsPage = () => {
             helpfulness,
             feedBack
         ).then((res) => {
-            setStatusCode(res)
+            setSubmitResponse(res)
             setIsOpenModal(true)
         })
     }
 
     return (
         <div className="flex flex-col py-8 w-full items-center gap-y-4">
-            <RatingModal isOpen={isOpenModal} statusCode={statusCode} isOpenFunc={()=>{setIsOpenModal(false)}}></RatingModal>
+            {submitResponse &&
+                <RatingModal isOpen={isOpenModal} response={submitResponse} isOpenFunc={() => { setIsOpenModal(false) }}></RatingModal>
+            }
             <div className="w-4/5 p-4 flex flex-row items-center rounded-xl bg-[#f8f7f6] drop-shadow-md">
                 <span className="w-2/5">Course</span>
-                <select name="courseSelect" id="" className="p-2 rounded-lg w-2/5" onChange={(e:any)=>{
+                <select name="courseSelect" id="" className="p-2 rounded-lg w-2/5" onChange={(e: any) => {
                     setSelectedCourse(e.target.value);
                 }}>
                     {
@@ -84,10 +88,10 @@ const RatingsPage = () => {
                     }
                 </select>
             </div>
-            <RatingItem ratingName="Teaching Quality" setRatingValue={setTeachingQuality} />
-            <RatingItem ratingName="Helpfulness" setRatingValue={setHelpfulness} />
-            <RatingItem ratingName="Responsiveness" setRatingValue={setResponsiveness} />
-            <RatingItem ratingName="Course Quality" setRatingValue={setCourseQuality} />
+            <RatingItem required={true} ratingName="Teaching Quality" setRatingValue={setTeachingQuality} />
+            <RatingItem required={true} ratingName="Helpfulness" setRatingValue={setHelpfulness} />
+            <RatingItem required={true} ratingName="Responsiveness" setRatingValue={setResponsiveness} />
+            <RatingItem required={true} ratingName="Course Quality" setRatingValue={setCourseQuality} />
             <div className="w-4/5 p-4 flex flex-row items-center rounded-xl bg-[#f8f7f6] drop-shadow-md">
                 <span className="w-2/5">Feedback</span>
                 <textarea name="" id="" onChange={handleFeedbackChange} rows={5} placeholder="Feedback ..." className="rounded-sm border border-[#1818183a] w-1/2 p-4"></textarea>

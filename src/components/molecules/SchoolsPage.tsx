@@ -14,7 +14,7 @@ const SchoolsPage = () => {
     return (
         <div className="px-8 flex flex-col items-center">
             <div className="mb-14 mt-2 w-full border-b-[2px] border-[#ffc1c15b] bg-[#fff1f155] h-[12rem] flex items-center justify-center">
-                <text className="text-red-700 text-4xl font-bold">Schools of Mahindra University</text>
+                <span className="text-red-700 text-4xl font-bold">Schools of Mahindra University</span>
             </div>
 
             <div className="w-[70%]">

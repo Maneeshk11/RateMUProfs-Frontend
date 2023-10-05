@@ -3,11 +3,12 @@ import Modal from 'react-modal';
 import WrongIcon from "../../assets/icons/cross.svg"
 import CorrectIcon from "../../assets/icons/TickCircle.svg"
 import { useNavigate } from 'react-router';
+import { SendRatingResponse } from '@/Constants/types';
 
 interface ModalProps {
     isOpen: boolean;
-    statusCode: number;
     isOpenFunc: () => void;
+    response: SendRatingResponse
 }
 
 const customStyles = {
@@ -26,14 +27,15 @@ const customStyles = {
 
 const RatingModal: FC<ModalProps> = ({
     isOpen,
-    statusCode,
-    isOpenFunc
+    isOpenFunc,
+    response
 }) => {
     const navigate = useNavigate()
-    const successfulRating = statusCode === 201;
-    const inappropiateLanguage = statusCode === 422;
-    const unfilledValues = statusCode === 400;
-    const alreadyExistRating = statusCode === 409;
+    const successfulRating = response.statuscode === 201;
+    const inappropiateLanguage = response.statuscode === 422;
+    const unfilledValues = response.statuscode === 400;
+    const alreadyExistRating = response.statuscode === 409;
+    const bannedUser = response.statuscode === 403;
     return (
         <Modal
             style={customStyles}
@@ -74,6 +76,18 @@ const RatingModal: FC<ModalProps> = ({
                     <div className="w-full h-full flex flex-col justify-around items-center">
                         <img src={WrongIcon} alt="wrong" className='w-12' />
                         <span className='text-center'>You have already rated this professor for this course</span>
+                        <button className="min-h-14 border-[1px] border-[#00000041] text-white bg-[#000000c2] font-medium px-6 py-4 rounded-lg text-base"
+                            onClick={() => {
+                                navigate(-1)
+                            }}>Go Back</button>
+                    </div>
+                }
+                {
+                    bannedUser &&
+                    <div className="w-full h-full flex flex-col justify-around items-center">
+                        <img src={WrongIcon} alt="wrong" className='w-12' />
+                        <span className='text-center'>You have been Banned </span>
+                        <span className='text-center'>Please try after {response.bannedTime?.toFixed(1)} mins</span>
                         <button className="min-h-14 border-[1px] border-[#00000041] text-white bg-[#000000c2] font-medium px-6 py-4 rounded-lg text-base"
                             onClick={() => {
                                 navigate(-1)
